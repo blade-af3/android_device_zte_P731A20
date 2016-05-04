@@ -17,6 +17,14 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.sc8830:root/fstab.sc8830 \
+    $(LOCAL_PATH)/rootdir/init.sc8830.rc:root/init.sc8830.rc \
+    $(LOCAL_PATH)/rootdir/init.sc8830.usb.rc:root/init.sc8830.usb.rc \
+    $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.sc8830.rc:root/ueventd.sc8830.rc \
+    
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
