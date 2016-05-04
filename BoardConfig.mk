@@ -23,6 +23,7 @@ TARGET_BOOTLOADER_BOARD_NAME := P731A20
 BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --dt device/zte/P731A20/dt.img --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 11534336
