@@ -5,6 +5,8 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/zte/P731A20/BoardConfigVendor.mk
 
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp -DSPRD_HARDWARE
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a7 -mfpu=neon -mfloat-abi=softfp  -DSPRD_HARDWARE
 TARGET_BOARD_PLATFORM_GPU := mali-400
 
 ARCH_ARM_HAVE_NEON := true
