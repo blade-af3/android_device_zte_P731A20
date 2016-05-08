@@ -1,0 +1,5 @@
+on cali
+    insmod /system/lib/modules/focaltech_ts.ko
+
+on factorytest
+    insmod /system/lib/modules/focaltech_ts.ko
