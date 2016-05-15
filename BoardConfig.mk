@@ -78,17 +78,3 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.sc8830
 TARGET_RECOVERY_UI_LIB := librecovery_ui_sp8830
-
-# WIFI configs
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_2_1_DEVEL
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_sprdwl
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_sprdwl
-BOARD_WLAN_DEVICE           := sc2351
-WIFI_DRIVER_FW_PATH_PARAM   := "/data/misc/wifi/fwpath"
-WIFI_DRIVER_FW_PATH_STA     := "sta_mode"
-WIFI_DRIVER_FW_PATH_P2P     := "p2p_mode"
-WIFI_DRIVER_FW_PATH_AP      := "ap_mode"
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/sprdwl.ko"
-WIFI_DRIVER_MODULE_NAME     := "sprdwl"
