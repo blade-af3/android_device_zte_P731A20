@@ -48,8 +48,8 @@ PRODUCT_PACKAGES += \
 	gralloc.sc8830 \
 	camera.sc8830 \
 	camera2.sc8830 \
-	lights.sc8830 \
-	sprd_gsp.sc8830
+	lights.sc8830
+#	sprd_gsp.sc8830
 #	hwcomposer.sc8830 \
 
 # Ramdisk
