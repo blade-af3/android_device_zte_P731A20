@@ -21,19 +21,6 @@ PRODUCT_PACKAGES += \
 	libboost.so \
 	mali.ko
 
-# video modules
-PRODUCT_PACKAGES += \
-	libstagefright_sprd_soft_mpeg4dec \
-	libstagefright_sprd_soft_h264dec \
-	libstagefright_sprd_mpeg4dec \
-	libstagefright_sprd_mpeg4enc \
-	libstagefright_sprd_h264dec \
-	libstagefright_sprd_h264enc \
-	libstagefright_sprd_vpxdec \
-	libstagefright_soft_mjpgdec \
-	libstagefright_sprd_mp3dec \
-	libstagefright_soft_imaadpcmdec
-
 # default audio
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
