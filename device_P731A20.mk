@@ -25,19 +25,19 @@ PRODUCT_PACKAGES += \
 	mali.ko
 
 # default audio
-PRODUCT_PACKAGES += \
-	audio.a2dp.default \
-	audio.usb.default \
-	audio.r_submix.default \
-	libaudio-resampler
+#PRODUCT_PACKAGES += \
+#	audio.a2dp.default \
+#	audio.usb.default \
+#	audio.r_submix.default \
+#	libaudio-resampler
 
 # sprd HAL modules
-PRODUCT_PACKAGES += \
-	audio.primary.sc8830 \
-	audio_policy.sc8830 \
-	camera.sc8830 \
-	camera2.sc8830 \
-	lights.sc8830
+#PRODUCT_PACKAGES += \
+#	audio.primary.sc8830 \
+#	audio_policy.sc8830 \
+#	camera.sc8830 \
+#	camera2.sc8830 \
+#	lights.sc8830
 
 # HWC
 #PRODUCT_PACKAGES += \
