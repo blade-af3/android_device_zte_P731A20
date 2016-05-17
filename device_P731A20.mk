@@ -9,11 +9,14 @@ DEVICE_PACKAGE_OVERLAYS += device/zte/P731A20/overlay
 
 LOCAL_PATH := device/zte/P731A20
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # sprd telephony
 PRODUCT_PACKAGES += \
 	Dialer \
 	Mms
-
 
 # graphics modules
 PRODUCT_PACKAGES += \
