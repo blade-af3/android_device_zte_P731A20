@@ -40,11 +40,11 @@ PRODUCT_PACKAGES += \
 #	lights.sc8830
 
 # HWC
-#PRODUCT_PACKAGES += \
-#	gralloc.sc8830 \
-#	hwcomposer.sc8830 \
-#	sprd_gsp.sc8830 \
-#	libion
+PRODUCT_PACKAGES += \
+	gralloc.sc8830 \
+	hwcomposer.sc8830 \
+	sprd_gsp.sc8830 \
+	libion
 
 # Codecs
 #PRODUCT_PACKAGES += \
