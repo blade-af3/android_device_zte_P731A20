@@ -8,8 +8,7 @@ LOCAL_LDLIBS        += -Idl
 
 #LOCAL_CFLAGS += -DENG_API_LOG
 
-LOCAL_C_INCLUDES  := vendor/sprd/open-source/libs/audio/DumpData\
-				external/expat/lib 
+LOCAL_C_INCLUDES := external/expat/lib
 
 LOCAL_SRC_FILES     :=   dumpdata.c
 

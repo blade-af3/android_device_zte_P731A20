@@ -10,7 +10,7 @@ LOCAL_C_INCLUDES := \
           frameworks/native/include/media/openmax    \
 	  frameworks/av/media/libstagefright/codecs/mp3dec_sprd   \
 	  frameworks/av/include/media/stagefright \
-	  $(TOP)/vendor/sprd/open-source/libs/libstagefrighthw/include
+	  $(LOCAL_PATH)/../../..//libstagefrighthw/include
 
 LOCAL_CFLAGS := -DOSCL_EXPORT_REF= -DOSCL_IMPORT_REF=
 

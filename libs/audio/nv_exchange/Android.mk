@@ -19,8 +19,8 @@ include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := -D_POSIX_SOURCE -Wno-multichar -g
 
-LOCAL_C_INCLUDES += vendor/sprd/open-source/apps/engmode \
-			vendor/sprd/open-source/libs/audio \
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../engmode \
+			$(LOCAL_PATH)/../ \
 			external/expat/lib
 
 LOCAL_SRC_FILES :=  string_exchange_bin.c

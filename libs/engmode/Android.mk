@@ -34,10 +34,10 @@ endif
 endif
 
 LOCAL_C_INCLUDES    +=  external/sqlite/dist/
-LOCAL_C_INCLUDES    +=  vendor/sprd/open-source/libs/libatchannel/
-LOCAL_C_INCLUDES    +=  vendor/sprd/open-source/libs/audio/nv_exchange/
-LOCAL_C_INCLUDES    +=  vendor/sprd/open-source/libs/audio/
-LOCAL_C_INCLUDES    +=  $(TARGET_OUT_INTERMEDIATES)/KERNEL/source/include/uapi/mtd/
+LOCAL_C_INCLUDES    +=  $(LOCAL_PATH)/../libatchannel/
+LOCAL_C_INCLUDES    +=  $(LOCAL_PATH)/../audio/nv_exchange/
+LOCAL_C_INCLUDES    +=  $(LOCAL_PATH)/../audio/
+LOCAL_C_INCLUDES    +=  $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/source/include/uapi/mtd/
 LOCAL_SRC_FILES     := eng_pcclient.c  \
 		       eng_diag.c \
 		       vlog.c \

@@ -33,12 +33,13 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_SRC_FILES := gsp_hal.cpp
 
-#/home/apuser/work/shark_android2/device/sprd/common/libs/mali/src/ump/include/ump/ump.h
 MALI_DDK_PATH := device/sprd/common/libs
 LOCAL_C_INCLUDES := $(MALI_DDK_PATH)/mali/src/ump/include
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../../gralloc \
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL/usr/include/video \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/video/ \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/ \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/
 
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)	

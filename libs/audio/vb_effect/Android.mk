@@ -19,10 +19,10 @@ include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := -D_POSIX_SOURCE -Wno-multichar -g
 
-LOCAL_C_INCLUDES += vendor/sprd/open-source/apps/engmode \
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../engmode \
 			external/tinyalsa/include \
-			vendor/sprd/open-source/libs/audio \
-			vendor/sprd/open-source/libs/audio/nv_exchange
+			$(LOCAL_PATH)/../ \
+			$(LOCAL_PATH)/../nv_exchange \
 
 	BOARD_EQ_DIR := v1
 

@@ -54,12 +54,12 @@ LOCAL_C_INCLUDES += \
 	external/expat/lib \
 	system/media/audio_utils/include \
 	system/media/audio_effects/include \
-	vendor/sprd/open-source/apps/engmode \
-	vendor/sprd/open-source/libs/audio/vb_pga \
-	vendor/sprd/open-source/libs/audio/record_process \
-	vendor/sprd/open-source/libs/audio/nv_exchange \
-	vendor/sprd/open-source/libs/libatchannel \
-	vendor/sprd/open-source/libs/audio/DumpData
+	$(LOCAL_PATH)/../engmode \
+	$(LOCAL_PATH)/../audio/vb_pga \
+	$(LOCAL_PATH)/../audio/record_process \
+	$(LOCAL_PATH)/../audio/nv_exchange \
+	$(LOCAL_PATH)/../libatchannel \
+	$(LOCAL_PATH)/../audio/DumpData
 	
 	BOARD_EQ_DIR := v1
 

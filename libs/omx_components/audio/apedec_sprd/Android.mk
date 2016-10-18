@@ -11,8 +11,8 @@ LOCAL_C_INCLUDES := \
         frameworks/av/media/libstagefright/include \
         frameworks/native/include/media/openmax \
         frameworks/av/include/media/stagefright \
-        $(TOP)/vendor/sprd/open-source/libs/libstagefrighthw/include \
-        $(TOP)/vendor/sprd/open-source/libs/omx_components/audio/apedec_sprd/decode_inc
+        $(LOCAL_PATH)/../../../libstagefrighthw/include \
+        $(LOCAL_PATH)/../../../omx_components/audio/apedec_sprd/decode_inc
 
 LOCAL_CFLAGS := -DOSCL_EXPORT_REF= -DOSCL_IMPORT_REF= -D_AACARM_  -D_ARMNINEPLATFORM_  -DAAC_DEC_LITTLE_ENDIAN
 

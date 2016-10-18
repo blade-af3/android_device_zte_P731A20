@@ -39,8 +39,8 @@ LOCAL_SRC_FILES := SprdHWComposer.cpp \
                    dump.cpp
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/../gralloc \
-	$(LOCAL_PATH)/../mali/src/ump/include \
-	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/video \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/video/ \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/ \
 
 LOCAL_MODULE := hwcomposer.$(TARGET_BOARD_PLATFORM)
 LOCAL_CFLAGS:= -DLOG_TAG=\"SPRDHWComposer\"
