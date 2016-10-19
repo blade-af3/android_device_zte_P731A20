@@ -3,7 +3,7 @@ ro.sf.lcd_density=240
 ro.sf.lcd_width=54
 ro.sf.lcd_height=96
 ro.opengles.version=131072
-ro.product.hardware=SP7731GEA_V1.0.0
+ro.product.hardware=SP7731GEA
 
 debug.hwui.render_dirty_regions=false
 
@@ -11,6 +11,7 @@ debug.hwui.render_dirty_regions=false
 debug.bt.lowspeed=true
 
 persist.ttydev=ttyVUART0
+persist.storage.type=1
 
 # delay for ConnectivityChange broadcast (ms)
 conn.connectivity_change_delay = 0
@@ -40,21 +41,29 @@ persist.sys.custback=left
 
 ro.config.ksm.support=true
 
-#zram config
-ro.config.zram.support=true
-ro.board_ram_size=mid
-
-# SPRD: add low cost low memory @{
-ro.config.low_ram=true
-# @}
-
 #if our product not support drm,set as false
 drm.service.enabled=true
 
 # hotspot development
 ro.hotspot.enabled=1
 
+# Low memory device
+ro.config.low_ram=true
+
+# RIL
+ro.com.android.dataroaming=false
+ro.msms.phone_count=2
+persist.msms.phone_count=2
+persist.msmslt=0
+ro.modem.w.count=2
+persist.sys.modem.diag=,gser
+sys.usb.gser.count=2
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+persist.radio.multisim.config=dsds
+
 # this product does not support bt and softap coexist
 ro.btwifisoftap.coexist=false
+
 # SPRD: add support hwrotation
 ro.sf.hwrotation=0
