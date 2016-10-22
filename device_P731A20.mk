@@ -37,7 +37,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.recovery.board.rc:root/init.recovery.board.rc \
     $(LOCAL_PATH)/rootdir/init.sc8830.rc:root/init.sc8830.rc \
     $(LOCAL_PATH)/rootdir/init.sc8830.usb.rc:root/init.sc8830.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.storage.rc:root/init.storage.rc \
     $(LOCAL_PATH)/rootdir/ueventd.sc8830.rc:root/ueventd.sc8830.rc \
 
 PRODUCT_COPY_FILES += \

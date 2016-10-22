@@ -1,6 +1,3 @@
-
-import /init.storage.rc
-
 # add for board-relative touch screen driver for
 # alarm mode and normal mode.
 on post-fs

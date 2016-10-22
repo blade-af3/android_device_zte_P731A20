@@ -17,33 +17,23 @@ on early-init
 
 on init
     mkdir /productinfo 0771 system system
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0700 root root
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
-
-    # SPRD: move this to board level init @{
-    #export EXTERNAL_STORAGE /storage/emulated/legacy
-    #export SECONDARY_STORAGE /storage/sdcard0
-    # @}
-    # SPRD: for storage manage @{
-    export LEGACY_STORAGE /storage/emulated/legacy
-    # @}
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-
-    # Support legacy paths
-    # move this to board level init @{
-    #symlink /storage/emulated/legacy /sdcard
-    #symlink /storage/emulated/legacy /mnt/sdcard
-    # @}
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-
-# SPRD: add for OTG usb disk @{
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
     mkdir /storage/usbdisk 0000 system system
+
+    export LEGACY_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+    export EXTERNAL_STORAGE /storage/sdcard1
+    export SECONDARY_STORAGE /storage/emulated/legacy
+
+    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
     symlink /storage/usbdisk /mnt/usbdisk
-# @}
+    symlink /storage/sdcard1 /sdcard
+    symlink /storage/sdcard1 /mnt/sdcard
 
     chown system system /sys/class/power_supply/battery/hw_switch_point
     chown system system /sys/class/power_supply/battery/save_capacity
@@ -151,18 +141,17 @@ on boot
     chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
     chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
     chmod 0666 /dev/iq_mem
- chown system system  /sys/devices/virtual/ms-touchscreen-msg20xx/device/update
- chown system system  /sys/devices/virtual/ms-touchscreen-msg20xx/device/data
- chown system system /sys/devices/virtual/ms-touchscreen-msg20xx/device/version
- chown system system /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/distance
- chown system system /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/enable
- chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/update
- chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/data
- chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/version
- chmod 0660   /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/distance
- chmod 0660    /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/enable
- 
- 
+    chown system system  /sys/devices/virtual/ms-touchscreen-msg20xx/device/update
+    chown system system  /sys/devices/virtual/ms-touchscreen-msg20xx/device/data
+    chown system system /sys/devices/virtual/ms-touchscreen-msg20xx/device/version
+    chown system system /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/distance
+    chown system system /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/enable
+    chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/update
+    chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/data
+    chmod 0660   /sys/devices/virtual/ms-touchscreen-msg20xx/device/version
+    chmod 0660   /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/distance
+    chmod 0660    /sys/devices/f5370000.i2c/i2c-2/2-0048/input/input4/driver/enable
+
 on charger
     class_start core
     start console
@@ -180,28 +169,6 @@ on alarm
     start slog
     start poweroffalarm
 
-on property:ro.board_ram_size=min
-    setprop zram.disksize 64
-
-on property:ro.board_ram_size=low
-    setprop zram.disksize 200
-    write /proc/sys/vm/extra_free_kbytes 1024
-    write /sys/module/zram/parameters/total_mem_usage_percent  35
-
-on property:ro.board_ram_size=mid
-    setprop zram.disksize 300
-    write /proc/sys/vm/extra_free_kbytes 2048
-
-on property:ro.config.zram.support=true
-    setprop sys.vm.swappiness 100
-    write /proc/sys/vm/page-cluster  0
-    start zram
-
-service zram /system/xbin/zram.sh
-        disabled
-        oneshot
-
-
 on property:ro.debuggable=1
     write /sys/kernel/debug/fatal_dump/enable 1
     mkdir /data/corefile
@@ -215,81 +182,31 @@ on property:ro.debuggable=1
     write /proc/sys/fs/suid_dumpable 1
     write /sys/module/smsg/parameters/debug_enable 1
 
-on property:ro.modem.t.count=1
-    write /proc/sim/0 t
-
-on property:ro.modem.t.count=2
-    write /proc/sim/0 t
-    write /proc/sim/1 t
-
-on property:ro.modem.t.count=3
-    write /proc/sim/0 t
-    write /proc/sim/1 t
-    write /proc/sim/2 t
-
-on property:ro.modem.w.count=1
-    write /proc/sim/0 w
-
 on property:ro.modem.w.count=2
     write /proc/sim/0 w
     write /proc/sim/1 w
-
-on property:ro.modem.w.count=3
-    write /proc/sim/0 w
-    write /proc/sim/1 w
-    write /proc/sim/2 w
 
 on property:ro.config.ksm.support=true
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
     write /sys/kernel/mm/ksm/run   1
 
-
-# SPRD: add for theme setting @{
-on property:universe_ui_support=true
-    start theme_init
-    
 on property:persist.sys.custback=left
 	write /dev/tp_setkey 1
 on property:persist.sys.custback=right
 	write /dev/tp_setkey 0
 
-
-service theme_init /system/bin/theme_init.sh
-    disabled
-    oneshot
-# @}
-
-# add for storage manage @{
-on property:persist.storage.type=1
-    start legacy_tempsd
-
-on property:sys.internal.emulated=0
-    stop sdcard
-    stop legacy_tempsd
-
-service legacy_tempsd /system/bin/sdcard -u 1023 -g 1023 -w 1051 -l /data/media/temp_sd /storage/temp_sd
-    disabled
-
-# add for otg usbdisk
-service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
-    class late_start
-    disabled
-
-# add for physical internal storage
-service fuse_internalsd /system/bin/sdcard -u 1023 -g 1023 -w 1051 -d /mnt/media_rw/internalsd /storage/internalsd
-    class late_start
-    disabled
-# @}
-
-# modify for physical external storage could be writable
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -w 1052 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
-    disabled
-
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -w 1051 -l /data/media /mnt/shell/emulated
     class late_start
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1052 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
+    class late_start
+    disabled
 
 #modem_control
 service modem_control  /system/bin/modem_control
@@ -342,31 +259,6 @@ service charge /bin/charge
     user root
     oneshot
 
-#td rild service
-service tril-daemon /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m t -n 0
-    class core
-    socket trild stream 660 root radio
-    socket trild-debug stream 660 radio system
-    disabled
-    user root
-    group radio cache inet misc audio sdcard_rw log
-
-service tril-daemon1 /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m t -n 1
-    class core
-    socket trild1 stream 660 root radio
-    socket trild-debug1 stream 660 radio system
-    disabled
-    user root
-    group radio cache inet misc audio sdcard_rw log
-
-service tril-daemon2 /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m t -n 2
-    class core
-    socket trild2 stream 660 root radio
-    socket trild-debug2 stream 660 radio system
-    disabled
-    user root
-    group radio cache inet misc audio sdcard_rw log
-
 #wcdma rild service
 service wril-daemon /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m w -n 0
     class core
@@ -392,31 +284,8 @@ service wril-daemon2 /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -
     user root
     group radio cache inet misc audio sdcard_rw log shell
 
-#lte rild service
-service lril-daemon /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m l -n 0
-    class core
-    socket lrild stream 660 root radio
-    socket lrild-debug stream 660 radio system
-    disabled
-    user root
-    group radio cache inet misc audio sdcard_rw log shell
-
 #nvitemd
-service nvitemd_td /system/bin/nvitemd t 0
-    class core
-    user system
-    disabled
-    group system radio shell
-    oneshot
-
 service nvitemd_w /system/bin/nvitemd w 0
-    class core
-    user system
-    group system radio shell
-    disabled
-    oneshot
-
-service nvitemd_l /system/bin/nvitemd l 0
     class core
     user system
     group system radio shell
@@ -455,20 +324,6 @@ on property:persist.modem.w.enable=1
     start refnotify_w
     start nvitemd_w
 
-on property:persist.modem.t.enable=1
-    start refnotify_td
-    start nvitemd_td
-
-on property:persist.modem.l.enable=1
-    start refnotify_l
-    start nvitemd_l
-
-#create symlink
-service smd_symlink /system/bin/ext_symlink.sh -u
-    user root
-    disabled
-    oneshot
-
 #data on
 service data_on /system/bin/ext_data.sh  -u
     user root
@@ -481,19 +336,8 @@ service data_off /system/bin/ext_data.sh  -d
     disabled
     oneshot
 
-#kill td app
-service kill_td_phone /system/bin/ext_kill.sh  -t
-    user root
-    disabled
-    oneshot
-
 #kill w app
 service kill_w_phone /system/bin/ext_kill.sh  -w
-    user root
-    disabled
-    oneshot
-#kill lte app
-service kill_l_phone /system/bin/ext_kill.sh  -l
     user root
     disabled
     oneshot
