@@ -13,17 +13,6 @@ LOCAL_PATH := device/zte/P731A20
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
-# sprd telephony
-PRODUCT_PACKAGES += \
-	Dialer \
-	Mms
-
-# graphics modules
-PRODUCT_PACKAGES += \
-	libGLES_mali.so \
-	libboost.so \
-	mali.ko
-
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
