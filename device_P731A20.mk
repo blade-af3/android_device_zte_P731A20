@@ -24,49 +24,11 @@ PRODUCT_PACKAGES += \
 	libboost.so \
 	mali.ko
 
-# default audio
-#PRODUCT_PACKAGES += \
-#	audio.a2dp.default \
-#	audio.usb.default \
-#	audio.r_submix.default \
-#	libaudio-resampler
-
-# sprd HAL modules
-#PRODUCT_PACKAGES += \
-#	audio.primary.sc8830 \
-#	audio_policy.sc8830 \
-#	camera.sc8830 \
-#	camera2.sc8830 \
-#	lights.sc8830
-
-# HWC
 PRODUCT_PACKAGES += \
-	gralloc.sc8830 \
-	hwcomposer.sc8830 \
-	sprd_gsp.sc8830 \
-	libion
-
-# Codecs
-#PRODUCT_PACKAGES += \
-#	libstagefrighthw \
-#	libstagefright_sprd_soft_mpeg4dec \
-#	libstagefright_sprd_soft_h264dec \
-#	libstagefright_sprd_mpeg4dec \
-#	libstagefright_sprd_mpeg4enc \
-#	libstagefright_sprd_h264dec \
-#	libstagefright_sprd_h264enc \
-#	libstagefright_sprd_vpxdec \
-#	libstagefright_sprd_aacdec \
-#	libstagefright_sprd_mp3dec \
-#	libomx_aacdec_sprd.so \
-#	libomx_avcdec_hw_sprd.so \
-#	libomx_avcdec_sw_sprd.so \
-#	libomx_avcenc_hw_sprd.so \
-#	libomx_m4vh263dec_hw_sprd.so \
-#	libomx_m4vh263dec_sw_sprd.so \
-#	libomx_m4vh263enc_hw_sprd.so \
-#	libomx_mp3dec_sprd.so \
-#	libomx_vpxdec_hw_sprd.so
+	audio.a2dp.default \
+	audio.usb.default \
+	audio.r_submix.default \
+	libaudio-resampler
 	
 # Ramdisk
 PRODUCT_COPY_FILES += \
@@ -105,7 +67,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
-    
+
+# WiFi
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product, build/target/product/full.mk)
 
