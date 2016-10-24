@@ -104,17 +104,3 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.sc8830
 BOARD_USE_VETH := true
 BOARD_SPRD_RIL := true
 USE_BOOT_AT_DIAG := true
-
-# WIFI configs
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-WPA_SUPPLICANT_VERSION      := VER_2_1_DEVEL
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_sprdwl
-BOARD_HOSTAPD_DRIVER        := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_sprdwl
-BOARD_WLAN_DEVICE           := sprdwl
-WIFI_DRIVER_FW_PATH_PARAM   := "/data/misc/wifi/fwpath"
-WIFI_DRIVER_FW_PATH_STA     := "sta_mode"
-WIFI_DRIVER_FW_PATH_P2P     := "p2p_mode"
-WIFI_DRIVER_FW_PATH_AP      := "ap_mode"
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/sprdwl.ko"
-WIFI_DRIVER_MODULE_NAME := "sprdwl"
