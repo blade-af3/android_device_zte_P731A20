@@ -227,7 +227,7 @@ class RILRequest {
  *
  * {@hide}
  */
-public class RIL extends BaseCommands implements CommandsInterface {
+public class SPRDRIL extends BaseCommands implements CommandsInterface {
     static final String RILJ_LOG_TAG = "RILJ";
     static final String LOG_TAG = RILJ_LOG_TAG;
     static final boolean RILJ_LOGD = true;
@@ -635,11 +635,11 @@ public class RIL extends BaseCommands implements CommandsInterface {
 
     //***** Constructors
 
-    public RIL(Context context, int preferredNetworkType, int cdmaSubscription) {
+    public SPRDRIL(Context context, int preferredNetworkType, int cdmaSubscription) {
         this(context, preferredNetworkType, cdmaSubscription, null);
     }
 
-    public RIL(Context context, int preferredNetworkType,
+    public SPRDRIL(Context context, int preferredNetworkType,
             int cdmaSubscription, Integer instanceId) {
         super(context);
         if (RILJ_LOGD) {
