@@ -63,6 +63,7 @@ sys.usb.gser.count=2
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
 persist.radio.multisim.config=dsds
+ro.telephony.ril_class=SPRDRIL
 
 # this product does not support bt and softap coexist
 ro.btwifisoftap.coexist=false

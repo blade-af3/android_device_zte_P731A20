@@ -261,24 +261,24 @@ service charge /bin/charge
     oneshot
 
 #wcdma rild service
-service ril-daemon /system/bin/logwrapper /system/bin/rild -l /system/lib/libreference-ril_sp.so -m w -n 0
+service wril-daemon /system/bin/logwrapper /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m w -n 0
     class core
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
+    socket wrild stream 660 root radio
+    socket wrild-debug stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_rw log shell
 
-service ril-daemon1 /system/bin/logwrapper /system/bin/rild -l /system/lib/libreference-ril_sp.so -m w -n 1
+service wril-daemon1 /system/bin/logwrapper /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m w -n 1
     class core
-    socket rild1 stream 660 root radio
-    socket rild-debug1 stream 660 radio system
+    socket wrild1 stream 660 root radio
+    socket wrild-debug1 stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_rw log shell
 
-service ril-daemon2 /system/bin/logwrapper /system/bin/rild -l /system/lib/libreference-ril_sp.so -m w -n 2
+service wril-daemon2 /system/bin/logwrapper /system/bin/rild_sp -l /system/lib/libreference-ril_sp.so -m w -n 2
     class core
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
+    socket wrild2 stream 660 root radio
+    socket wrild-debug2 stream 660 radio system
     disabled
     user root
     group radio cache inet misc audio sdcard_rw log shell
