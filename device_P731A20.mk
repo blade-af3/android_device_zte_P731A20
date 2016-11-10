@@ -13,12 +13,17 @@ LOCAL_PATH := device/zte/P731A20
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
+# Audio
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default \
 	libaudio-resampler
-	
+
+# Camera
+PRODUCT_PACKAGES += \
+    libcamera_shim
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.sc8830:root/fstab.sc8830 \
