@@ -13,9 +13,6 @@ LOCAL_PATH := device/zte/P731A20
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 # Audio
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
