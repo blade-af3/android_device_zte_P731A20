@@ -20,10 +20,6 @@ PRODUCT_PACKAGES += \
 	audio.r_submix.default \
 	libaudio-resampler
 
-# Camera
-PRODUCT_PACKAGES += \
-    libcamera_shim
-
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.sc8830:root/fstab.sc8830 \
